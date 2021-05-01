@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./css/style.css">
+    <link type="image/png" rel="icon" href="image/vSon.png">
+</head>
+<script>
+var knp_arr = [];
+
+function f_1(o,obj) {
+
+ if (knp_arr[o] == 1) {
+     knp_arr[o] = 0; 
+	 document.getElementById('saudio_'+o).pause();
+	 obj.children[0].className = "bot_voice_0";
+     obj.children[0].children[0].style.backgroundImage = "url('image/pic_"+o+"0.png')";
+   } else {
+     knp_arr[o] = 1; 
+	 document.getElementById('saudio_'+o).play();
+	 obj.children[0].className = "bot_voice_1";
+     obj.children[0].children[0].style.backgroundImage = "url('image/pic_"+o+"1.png')";
+   }
+}
+function f_volRain() {
+    
+    vol = document.getElementById("volRain").value;
+    document.getElementById('saudio_1').volume = vol/100;
+    document.getElementById('saudio_2').volume = vol/100;
+    document.getElementById('saudio_3').volume = vol/100;
+
+   }
+</script>
+<body>
+
+<div class="media_div">
+    <audio controls id="saudio_1" class="media_hid" loop="loop">
+        <source src="files\_noisli_rain.mp3">
+    </audio>
+    <audio controls id="saudio_2" class="media_hid" loop="loop">
+        <source src="files\_noisli_fireplace.mp3">
+    </audio>
+    <audio controls id="saudio_3" class="media_hid" loop="loop">
+        <source src="files\_noisli_leaves.mp3">
+    </audio>
+
+	
+	<table border="0" width="100%">
+	<tr>
+	<td>
+        <div id="tmp_div"></div>
+        <input type="range" step="1" amin="1" amax="100" id="volRain" oninput="f_volRain()" value="30" style="width: 100%;">
+	</td>
+	<td onclick="f_1(1, this)" width="1px" height="1px">
+        <div class="bot_voice_0">
+            <div class="botRain" style="background-image: url('image/pic_10.png');">&nbsp;</div>
+        </div>
+	</td>
+	<td onclick="f_1(2, this)" width="1px" height="1px">
+        <div class="bot_voice_0">
+            <div class="botRain" style="background-image: url('image/pic_20.png');">&nbsp;</div>
+        </div>
+	</td>
+	<td onclick="f_1(3, this)" width="1px" height="1px">
+        <div class="bot_voice_0">
+            <div class="botRain" style="background-image: url('image/pic_30.png');">&nbsp;</div>
+        </div>
+	</td>
+	</tr>
+	</table>
+</div>
+
+<div class="player">
+    <div class="controls">
+        <div class="play_pause">
+            <div class="play_pause_icon play_pause-play"></div>
+		</div>
+        <div class="navigation">
+             <div class="navigation_prev"><div class="navigation_prev_icon"></div>
+		</div>
+        <div class="navigation_next">
+		    <div class="navigation_next_icon"></div>
+		</div>
+	</div>
+    <div class="progress_bar">
+	    <div class="progress_bar_title">---</div>
+        <div class="progress_bar_stripe">
+		    <div class="progress_bar_container">
+                <div class="progress_bar_container_percentage"></div>
+			</div>
+		</div>
+	</div>
+   </div>
+   <div class="playlist"></div>
+</div>
+<script src="./js/script.js"></script>
+
+</body></html>

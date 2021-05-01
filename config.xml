@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.my.name" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>vSon</name>
+    <description>
+        Application for sleep and relax on rain.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        VE
+    </author>
+    <content src="index.html" />
+	<icon src="image/vSon.png" />
+    <access origin="*" />
+    <preference name="AndroidLaunchMode" value="singleInstance" />
+    <preference name="DisallowOverscroll" value="false" />
+    <preference name="KeepRunning" value="true" />
+
+	<platform name="android">
+        <icon src="image/vSon.png" density="ldpi" />
+        <icon src="image/vSon.png" density="mdpi" />
+        <icon src="image/vSon.png" density="hdpi" />
+        <icon src="image/vSon.png" density="xhdpi" />
+		<activity android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+    </platform>
+
+       
+
+</widget>
